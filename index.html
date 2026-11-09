@@ -290,7 +290,7 @@ footer p+p{margin-top:6px}
           </label>
           <div class="filechip" id="chip"><span id="chipName"></span><button type="button" id="chipClear">取り消す</button></div>
           <div class="err" data-for="file">RAWデータを選択してください。</div>
-          <p class="hint">スマートフォンの場合は、Wi-Fi環境での送信をおすすめします。アップロード中はこのページを閉じないでください。</p>
+          <p class="hint"><strong>送信には数分かかることがあります。</strong>RAWデータは容量が大きいため、回線の状況によっては、開始まで1分ほどかかる場合もあります。「送信ありがとうございました」と表示されるまで、このページを閉じずにお待ちください。スマートフォンの場合は、Wi-Fi環境での送信をおすすめします。</p>
         </div>
 
         <div class="hp" aria-hidden="true"><label>ウェブサイト<input type="text" id="hp" tabindex="-1" autocomplete="off"></label></div>
@@ -470,7 +470,7 @@ form.addEventListener('submit', async e => {
                  fileName:chosen.name, fileSize:chosen.size, hp:$('hp').value,
                  slotId:(document.querySelector('input[name="slot"]:checked') || {}).value, holdToken };
   const btn = $('submit'); btn.disabled = true; btn.textContent = '送信中…';
-  $('progress').classList.add('show'); progress(2, 'アップロードを準備しています…');
+  $('progress').classList.add('show'); progress(2, 'アップロードを準備しています…（開始まで1分ほどかかることがあります）');
 
   const onLeave = ev => { ev.preventDefault(); ev.returnValue = ''; };
   window.addEventListener('beforeunload', onLeave);
